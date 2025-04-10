@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Sessões - Sistema de Cinema</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="cadastro-filmes.html">Cadastrar Filmes</a>
+        <a href="cadastro-salas.html">Cadastrar Salas</a>
+        <a href="cadastro-sessoes.html">Cadastrar Sessões</a>
+        <a href="venda-ingressos.html">Venda de Ingressos</a>
+        <a href="sessoes.html">Sessões Disponíveis</a>
+    </nav>
+    <main>
+        <h1>Cadastro de Sessões</h1>
+        <form id="form-sessoes">
+            <label for="filme">Filme:</label><br>
+            <select id="filme" name="filme" required>
+                <option value="">Selecione um filme</option>
+            </select><br>
+
+            <label for="sala">Sala:</label><br>
+            <select id="sala" name="sala" required>
+                <option value="">Selecione uma sala</option>
+            </select><br>
+
+            <label for="dataHora">Data e Hora:</label><br>
+            <input type="datetime-local" id="dataHora" name="dataHora" required><br>
+
+            <label for="preco">Preço (R$):</label><br>
+            <input type="number" id="preco" name="preco" step="0.01" min="0" required><br>
+
+            <label for="idioma">Idioma:</label><br>
+            <select id="idioma" name="idioma" required>
+                <option value="">Selecione</option>
+                <option value="dublado">Dublado</option>
+                <option value="legendado">Legendado</option>
+            </select><br>
+
+            <label for="formato">Formato:</label><br>
+            <select id="formato" name="formato" required>
+                <option value="">Selecione</option>
+                <option value="2D">2D</option>
+                <option value="3D">3D</option>
+            </select><br>
+
+            <button type="submit">Salvar Sessão</button>
+        </form>
+    </main>
+    <script src="js/script.js" defer></script>
+</body>
+</html>
