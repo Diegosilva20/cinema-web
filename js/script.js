@@ -111,7 +111,6 @@ if (window.location.pathname.includes('cadastro-sessoes.html')) {
     });
 }
 
-// Lógica da listagem de sessões
 if (window.location.pathname.includes('sessoes.html')) {
     function listarSessoes() {
         const sessoes = carregarDados('sessoes');
@@ -119,30 +118,28 @@ if (window.location.pathname.includes('sessoes.html')) {
         const salas = carregarDados('salas');
         const lista = document.getElementById('lista-sessoes');
 
-        lista.innerHTML = ''; // Limpa a lista antes de popular
+        lista.innerHTML = '';
 
         if (sessoes.length === 0) {
-            lista.innerHTML = '<p>Nenhuma sessão disponível.</p>';
+            lista.innerHTML = '<tr><td colspan="5" class="text-center">Nenhuma sessão disponível.</td></tr>';
             return;
         }
 
         sessoes.forEach(sessao => {
             const filme = filmes.find(f => f.id == sessao.filme);
             const sala = salas.find(s => s.id == sessao.sala);
-            const div = document.createElement('div');
-            div.className = 'sessao-item';
-            div.innerHTML = `
-                ${filme ? filme.titulo : 'Filme não encontrado'} - 
-                ${sala ? sala.nome : 'Sala não encontrada'} - 
-                ${new Date(sessao.dataHora).toLocaleString()} - 
-                R$${parseFloat(sessao.preco).toFixed(2)}
-                <a href="venda-ingressos.html?sessao=${sessao.id}">Comprar Ingresso</a>
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${filme ? filme.titulo : 'Filme não encontrado'}</td>
+                <td>${sala ? sala.nome : 'Sala não encontrada'}</td>
+                <td>${new Date(sessao.dataHora).toLocaleString()}</td>
+                <td>R$${parseFloat(sessao.preco).toFixed(2)}</td>
+                <td><a href="venda-ingressos.html?sessao=${sessao.id}" class="btn btn-primary btn-sm">Comprar</a></td>
             `;
-            lista.appendChild(div);
+            lista.appendChild(tr);
         });
     }
 
-    // Chama a função ao carregar a página
     listarSessoes();
 }
 
