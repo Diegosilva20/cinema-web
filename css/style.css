@@ -5,3 +5,26 @@ body {
 .container {
     padding-top: 20px;
 }
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.btn-primary {
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #005f73;
+}
+
+.alert {
+    position: relative;
+    z-index: 1000;
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-top: 10px;
+    }
+}
